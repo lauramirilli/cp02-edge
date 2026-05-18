@@ -3,7 +3,7 @@
 ## 🔗 Links
 
 - [Youtube]()
-- [Wokwi]()
+- [Wokwi](https://wokwi.com/projects/464371875401568257)
 
 ## 👥 Integrantes
 
