@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": 265.8, "left": 540.4, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 269.4, "left": 95.4, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 57.9,
+      "left": 465,
+      "attrs": { "temperature": "-7.5", "humidity": "16" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 186.35,
+      "left": 393.6,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 303.6,
+      "left": 551,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 303.6,
+      "left": 589.4,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 303.6,
+      "left": 627.8,
+      "attrs": { "color": "red" }
+    },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr1", "top": 128, "left": 528.8, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 379.2,
+      "left": 546.65,
+      "rotate": 90,
+      "attrs": { "value": "150" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 379.2,
+      "left": 585.05,
+      "rotate": 90,
+      "attrs": { "value": "150" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": 379.2,
+      "left": 623.45,
+      "rotate": 90,
+      "attrs": { "value": "150" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 328.8,
+      "left": 683.4,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 505.6,
+      "left": 629.6,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "dht1:VCC", "uno:5V", "red", [ "v355.2", "h-230.4" ] ],
+    [ "dht1:SDA", "uno:2", "blue", [ "v67.2", "h-143.9" ] ],
+    [ "dht1:GND", "uno:GND.2", "black", [ "v364.8", "h-230.4" ] ],
+    [ "r1:2", "dht1:SDA", "green", [ "v0", "h37.2" ] ],
+    [ "r1:1", "dht1:VCC", "red", [ "v0", "h-19.2", "v-19.2" ] ],
+    [ "ldr1:AO", "uno:A0", "green", [ "h9.6", "v18.5", "h-182.4", "v336" ] ],
+    [ "bb1:1t.e", "bb1:bn.1", "green", [ "v0" ] ],
+    [ "bb1:5t.e", "bb1:bn.3", "gold", [ "v0" ] ],
+    [ "bb1:9t.e", "bb1:bn.6", "red", [ "v0" ] ],
+    [ "uno:5V", "bb1:tp.1", "red", [ "v47.9", "h243.8", "v-240" ] ],
+    [ "ldr1:VCC", "bb1:tp.2", "red", [ "h19.2", "v57.6", "h-124.8" ] ],
+    [ "ldr1:GND", "uno:GND.2", "black", [ "h9.6", "v57.2", "h-192", "v316.8", "h-240" ] ],
+    [ "bb1:2b.j", "uno:10", "gray", [ "v0", "h-336" ] ],
+    [ "bb1:6b.j", "uno:9", "gray", [ "v0", "h-355.2" ] ],
+    [ "bb1:10b.j", "uno:8", "gray", [ "v0", "h-384" ] ],
+    [ "bz1:1", "bb1:bn.12", "black", [ "v0" ] ],
+    [ "uno:5V", "bb1:bp.2", "red", [ "v38.3", "h330.2" ] ],
+    [ "lcd1:GND", "uno:GND.2", "black", [ "h0" ] ],
+    [ "lcd1:VCC", "bb1:bp.4", "red", [ "h0" ] ],
+    [ "lcd1:SDA", "uno:A4", "orange", [ "h0" ] ],
+    [ "lcd1:SCL", "uno:A5", "gold", [ "h0" ] ],
+    [ "bz1:2", "uno:1", "cyan", [ "v76.8", "h-336.4", "v-211.2" ] ],
+    [ "led1:A", "bb1:2t.d", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:1t.d", "", [ "$bb" ] ],
+    [ "led2:A", "bb1:6t.d", "", [ "$bb" ] ],
+    [ "led2:C", "bb1:5t.d", "", [ "$bb" ] ],
+    [ "led3:A", "bb1:10t.d", "", [ "$bb" ] ],
+    [ "led3:C", "bb1:9t.d", "", [ "$bb" ] ],
+    [ "r2:1", "bb1:2t.e", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:2b.i", "", [ "$bb" ] ],
+    [ "r3:1", "bb1:6t.e", "", [ "$bb" ] ],
+    [ "r3:2", "bb1:6b.i", "", [ "$bb" ] ],
+    [ "r4:1", "bb1:10t.e", "", [ "$bb" ] ],
+    [ "r4:2", "bb1:10b.i", "", [ "$bb" ] ],
+    [ "bz1:1", "bb1:16b.i", "", [ "$bb" ] ],
+    [ "bz1:2", "bb1:17b.i", "", [ "$bb" ] ],
+    [ "uno:GND.3", "bb1:bn.8", "black", [ "v57.5", "h388" ] ]
+  ],
+  "dependencies": {}
+}
